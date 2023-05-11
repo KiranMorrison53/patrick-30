@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background: #EEE5E9;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+
+h1 {
+  color: #222;
+  width: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 0 20px;
+  transform: translate(-50%, -50%);
+  font-family: 'VT323', monospace;
+}
+
+.surprise {
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+.card {
+  width: 50vw;
+  height: 90vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  display: grid;
+  grid-template-columns: 50vw;
+  grid-template-rows: 12fr 6fr 1fr;
+  grid-template-areas: "image" "text" "stats";
+  align-content: space-evenly;
+
+  border-radius: 15px;
+  background: #000;
+  font-family: var(--bodyFont);
+  text-align: center;
+}
+
+.card-image {
+  grid-area: image;
+  border-radius: 15px 15px 0px 0px;
+  background-size: cover;
+}
+
+.card-text {
+  color: white;
+  grid-area: text;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5vh;
+  padding: 10px 10px;
+}
+
+.card-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 0px 0px 15px 15px;
+}
+
+
+.toasty {
+  position: absolute;
+  left: 110%;
+  bottom: 0;
+}
+
+.flash {
+  animation: flash 4s linear infinite;
+}
+
+.animateIn {
+  animation: 4s left forwards ease;
+}
+
+.code {
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  top: calc(50% + 40px);
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #333;
+  padding: 0 20px;
+  animation: fade 2.5s 7s forwards linear;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes left {
+  0% {
+    left: 110%;
+  }
+
+  50% {
+    left: 50%;
+  }
+
+  100% {
+    left: 110%;
+  }
+}
+
+@keyframes flash {
+  0% {
+    border-right: none;
+  }
+
+  100% {
+    border-right: 0.08em solid #222;
+  }
+}
